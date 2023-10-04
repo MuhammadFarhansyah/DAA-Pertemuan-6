@@ -1,0 +1,15 @@
+# Greedy Nearest Neighbor (greedy_TSP)
+def greedy_TSP(cities):
+  "At each step, visit the nearest neighbor that is still unvisited"
+  start = first(cities)
+  tour = [start]
+  unvisited = cities - {start}
+  while unvisited:
+    C = nearest_neighbor(tour[-1], unvisited)
+    tour.append(C)
+    unvisited.remove(C)
+  return tour
+
+def nearest_neighbor(A, cities):
+  "Find the city in cities that is nearest to city A."
+  return min(cities, key = lambda x: distance(x, A))
