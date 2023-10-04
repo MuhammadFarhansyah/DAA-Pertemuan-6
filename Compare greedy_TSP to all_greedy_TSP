@@ -1,0 +1,2 @@
+# Compare greedy_TSP to all_greedy_TSP
+plot_tour(greedy_TSP, cities100)
