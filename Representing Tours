@@ -1,0 +1,6 @@
+# Representing Tours
+alltours = itertools.permutations
+
+cities = {1, 2, 3}
+
+list(alltours(cities))
