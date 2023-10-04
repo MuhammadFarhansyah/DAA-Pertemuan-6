@@ -1,0 +1,8 @@
+# Try All Tours (exact_TSP)
+def exact_TSP(cities):
+    "Gnerate all possible tours of the cities and choose the shortest one."
+    return shortest(alltours(cities))
+
+def shortest(tours):
+    "Return the tour with the minimum total distance."
+    return min(tours, key=total_distance)
