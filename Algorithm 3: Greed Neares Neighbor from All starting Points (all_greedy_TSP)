@@ -1,0 +1,19 @@
+# Algorithm 3: Greed Neares Neighbor from All starting Points (all_greedy_TSP)
+
+def all_greedy_TSP(cities):
+  "Try the greedy algorithm from each of the starting cities: return the shortest tour."
+  return shortest(greedy_TSP(cities, start=c) for c in cities)
+
+# Modify greedy_TSP to take an optimal start city: otherwise it is unchanged.
+
+def greedy_TSP(cities, start = None):
+  "At each step, visit the nearest neighbor that is still unvisited."
+  if start is None:
+    start = first(cities)
+    tour = [start]
+    unvisited = cities - {start}
+    while unvisited:
+      C = nearest_neighbor(tour[-1], unvisited)
+      tour.append(C)
+      unvisited.remove(C)
+    return tour
