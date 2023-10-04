@@ -1,0 +1,5 @@
+City = complex
+
+def distance(A, B):
+  "The distance between two points."
+  return abs(A - B)
