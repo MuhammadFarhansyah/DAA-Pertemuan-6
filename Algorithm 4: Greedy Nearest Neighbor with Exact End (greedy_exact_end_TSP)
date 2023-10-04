@@ -1,0 +1,17 @@
+# Algorithm 4: Greedy Nearest Neighbor with Exact End (greedy_exact_end_TSP)
+
+def greedy_exact_end_TSP(cities, start=None, end_size=8):
+  "At each step, visit the nearest neighbor that is still unvisited untill there are k_end cities left; then choose the best ofall possible endings."
+  if start is None:
+    start = first(cities)
+    tour = [start]
+    unvisited = cities - {start}
+    # Use greedy algoritm for all but the last end_size cities
+    while len(unvisited) > end_size:
+      C = nearest_neighbor(tour[-1], unvisited)
+      tour.append(C)
+      unvisited.remove(C)
+
+    ends = map(list, itertools.permutations(unvisited))
+    best = shortest([tour[0], tour[-1]] + end for end in ends)
+    return tour + best[2:]
