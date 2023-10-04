@@ -1,0 +1,10 @@
+# Try All Non-Redundant Tours
+def alltours(cities):
+  "Return a list of tours, each a permutation of cities, but each one starting with the same city."
+  start = first(cities)
+  return [[start] + list(tour)
+  for tour in itertools.permutations(cities - {start})]
+
+def first(collection):
+  "Start iterating over collection, and return the first element."
+  for x in collection: return x
