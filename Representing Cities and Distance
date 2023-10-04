@@ -1,0 +1,4 @@
+# Representing Cities and Distance
+def total_distance(tour):
+    "The total distance between each pair of consecutive cities in the tour."
+    return sum(distance(tour[i], tour[i-1]) for i in range(len(tour)))
