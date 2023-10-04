@@ -1,0 +1,24 @@
+# Plotting
+def plot_tour(algorithm, cities):
+  "Apply a TSP algorithm to cities, and plot the resulting tour."
+  # Find the solution and time long it takes
+  t0 = time.time()
+  tour = algorithm(cities)
+  t1 = time.time()
+  # Plot the tour as blue lines between blue circles, and the starting city as a red square.
+  plotline(list(tour) + [tour[0]])
+  plotline([tour[0]], 'rs')
+  plt.show
+  print("{} city tour; total distance = {:.1f}; time = {:.3f} secs for {}".format(
+      len(tour), total_distance(tour), t1-t0, algorithm.__name__))
+
+def plotline(points, style = 'bo-'):
+  "Plot a list of points (complex numbers) in the 2-D plane."
+  X, Y = XY(points)
+  plt.plot(X, Y, style)
+
+def XY(points):
+  "Given a list of points, return two lists: X coordinates, and Y coordinates."
+  return [p.real for p in points], [p.imag for p in points]
+
+plot_tour(exact_TSP, cities8)
