@@ -1,0 +1,6 @@
+# Algorithm 5: Greedy Nearest Neighbor with Both Ends Search (greedy_bi_TSP)
+
+def greedy_bi_TSP(cities, start_size=12, end_size=6):
+  "At each step, visit the nearest neighbor that is still unvisited."
+  starts = random.sample(cities, min(len(cities), start_size))
+  return shortest(greedy_exact_end_TSP(cities, start, end_size) for start in starts)
