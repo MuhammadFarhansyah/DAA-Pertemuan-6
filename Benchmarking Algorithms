@@ -1,0 +1,17 @@
+# Benchmarking Algorithms
+def compare_algorithms(algorithms, maps):
+  "Apply each algorithm to each map and plot results."
+  for algorithm in algorithms:
+    t0 = time.time()
+    results = [total_distance(algorithm(m)) for m in maps]
+    t1 = time.time()
+    avg = sum(results) / len(results)
+    label = '{:.0f}; {:.1f}s: {}'.format(avg, t1-t0, algorithm.__name__)
+    plt.plot(sorted(results), label=label)
+  plt.legend(loc=2)
+  plt.show()
+  print('{} x {}-city maps'.format(len(maps), len(maps[0])))
+
+def Maps(M, N):
+  "Return a list of M maps, each consisting of a set of N cities."
+  return [Cities(N) for m in range(M)]
