@@ -1,0 +1,9 @@
+def Cities(n):
+  "Make a set of n cities, each with random coordinates."
+  return set(City(random.randrange(10, 890), random.randrange(10, 590)) for c in range(n))
+
+# Let's make some standard sets of cities of various sizes
+# We'll set the random seed so that these sets are the same every time we run this notebook
+random.seed('seed')
+cities8, cities10, cities100, cities1000, cities10000= Cities(8), Cities(10), Cities(100), Cities(1000), Cities(10000)
+cities8
